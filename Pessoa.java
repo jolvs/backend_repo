@@ -1,6 +1,28 @@
 public class Pessoa {
-    String nome;
-    public Integer idade;
+    //#region ATRIBUTES
+    private String nome;
+    private Integer idade;
+    //#endregion
+
+    //#region SETTERS
+    public void setNome(String nome){
+        this.nome = nome;
+    }
+
+     public void setIdade (Integer idade) {
+        this.idade = idade;
+    }
+    //#endregion
+
+    //#region GETTERS
+    public String getNome(){
+        return this.nome;
+    }
+
+    public Integer getIdade() {
+        return this.idade;
+    }
+    //#endregion
 
 }
 

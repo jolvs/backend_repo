@@ -4,24 +4,36 @@ public class App {
         System.out.println("Aprendendo POO com Java");
 
         //Instaciando uma classe, construindo um objeto.
-
         Pessoa pessoa1 = new Pessoa();
-        pessoa1.nome = "Fulano";
-        pessoa1.idade = 21;
+        pessoa1.setNome("Fulano");
+        pessoa1.setIdade(21);
 
-        System.out.println(pessoa1.nome);
-        System.out.println(pessoa1.idade);
+        System.out.println(pessoa1.getNome());
+        System.out.println(pessoa1.getIdade());
+
 
         Pessoa pessoa2 = new Pessoa();
-        pessoa2.nome = "Ciclano";
-        pessoa2.idade = 25;
-        System.out.println(pessoa2.nome);
-        System.out.println(pessoa2.idade);
+        pessoa1.setNome("Ciclano");
+        pessoa1.setIdade(25);
 
+        System.out.println(pessoa1.getNome());
+        System.out.println(pessoa1.getIdade());
+
+        
         Carro meuCarro = new Carro();
+        meuCarro.setAno(2025);
+        meuCarro.setCor("Preto");
+        meuCarro.setModelo("Jeep Renegate");
 
-        meuCarro.ano = 2025;
-        meuCarro.modelo = "Jeep Renegate";
-        meuCarro.cor = "Preto";
+        System.out.println(meuCarro.getAno());
+        System.out.println(meuCarro.getCor());
+        System.out.println(meuCarro.getModelo());
+
+
+        Carro novoCarro = new Carro("Fiat Toro", 2024, "Vermelho");
+
+        System.out.println(novoCarro.getModelo());
+        System.out.println(novoCarro.getAno());
+        System.out.println(novoCarro.getCor());
     }
 }
