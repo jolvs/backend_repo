@@ -23,6 +23,12 @@ public class DataUtil {
         //EXEMPLO: 23:34:05
         SimpleDateFormat formatador = new SimpleDateFormat("HH:mm:ss");
         return formatador.format(data);
+
+        //Extrato bancario é composto por movimentações bancárias.
+        //Ter algo que possa ser a movimentação
+        //Ter uma lista de movimentações.
+
+        
     }
     
 }
