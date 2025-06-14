@@ -1,16 +1,18 @@
 package src.model;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.InputMismatchException;
 
 public abstract class ContaBancaria {
     
     //#region ATRIBUTES
-    private String agencia;
-    private String conta;
-    private Integer digito;
-    private Double saldo;
-    private Double VALOR_MINIMO_DEPOSITO = 10.0;
-    private Date dataAbertura;
+    protected  String agencia;
+    protected  String conta;
+    protected  Integer digito;
+    protected  Double saldo;
+    protected  Double VALOR_MINIMO_DEPOSITO = 10.0;
+    protected  Date dataAbertura;
+    protected  ArrayList<Movimentacao> movimentacoes;
     //#region
 
     //#region CONSTRUTORES
@@ -20,6 +22,15 @@ public abstract class ContaBancaria {
         this.digito = digito;
         this.saldo = saldoInicial;
         this.dataAbertura = new Date();
+        //Se não instanciar, vai dar uma excpetion de nullpointerException
+        this.movimentacoes = new ArrayList<Movimentacao>();
+
+        //Aqui criando a primeira movimentacao
+        Movimentacao movimentacao = new Movimentacao("Abertura de conta", saldoInicial);
+
+        //Aqui estou salvando a movimentação dentro do meu array de movimentações;
+        //Aqui estou iniciando o meu extrato bancario.
+        this.movimentacoes.add(movimentacao);
     }
     //#endregion
     
@@ -66,6 +77,11 @@ public abstract class ContaBancaria {
             throw new InputMismatchException("O valor minimo de depósito é R$" + VALOR_MINIMO_DEPOSITO);
         }
         this.saldo += valor;
+
+        //Aqui faço uma movimentacao no extrato;
+
+        Movimentacao movimentacao = new Movimentacao("Deposito", valor);
+        this.movimentacoes.add(movimentacao);
     }
 
     public Double sacar(Double valor) {
@@ -78,6 +94,10 @@ public abstract class ContaBancaria {
         }
 
         this.saldo -= valor;
+
+        Movimentacao movimentacao = new Movimentacao("Saque", valor);
+        this.movimentacoes.add(movimentacao);
+
         return valor;
     }
 
@@ -91,6 +111,9 @@ public abstract class ContaBancaria {
     }
 
     //#endregion
+
+    //Metodo abstrato obriga as classes que estão herdando de implementarem este metodo
+    public abstract void imprimirExtrato();
 
 
 } 
