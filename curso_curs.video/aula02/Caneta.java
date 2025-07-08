@@ -1,15 +1,17 @@
+package aula02;
+
 public class Caneta {
 
     //#region Atributes
-    String modelo;
-    String cor;
-    String ponta;
-    int carga;
-    boolean tampada;
+    public String modelo;
+    public String cor;
+    private String ponta;
+    protected int carga;
+    protected boolean tampada;
     //#endregion
 
     //#region metods
-    void status(){
+    public void status(){
         System.out.println("Modelo: " + this.modelo);
         System.out.println("Uma caneta " + this.cor);
         System.out.println("Ponta " + this.ponta);
@@ -17,7 +19,7 @@ public class Caneta {
         System.out.println("Está tampada? " + this.tampada);
     }
 
-    void rabiscar() {
+    public void rabiscar() {
 
         if(this.tampada == true){
             System.out.println("ERRO: Não posso rabiscar");
@@ -27,15 +29,14 @@ public class Caneta {
         }
     }
 
-    void tampar() {
+    public void tampar() {
 
         this.tampada = true;
     }
 
-    void destampar(){
+    public void destampar(){
 
         this.tampada = false;
     }
-
     //#endregion
 }
