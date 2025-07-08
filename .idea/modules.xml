@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/backend_repo.iml" filepath="$PROJECT_DIR$/backend_repo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/curso_curs.video/curso_curs.video.iml" filepath="$PROJECT_DIR$/curso_curs.video/curso_curs.video.iml" />
+    </modules>
+  </component>
+</project>

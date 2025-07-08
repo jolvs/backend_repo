@@ -1,11 +1,20 @@
 public class Caneta {
     //#region Atributes
-    public String modelo;
+    private String modelo;
     private float ponta;
+    private String cor;
+    private boolean tampada;
     //#endregion
 
-    //#region constructors
 
+    //#region constructes
+
+    public Caneta(String modelo, float ponta, String cor) {
+        this.setModelo(modelo);
+        this.setPonta(ponta);
+        this.cor = cor;
+        this.tampar();
+    }
 
     //#endregion
 
@@ -39,8 +48,18 @@ public class Caneta {
 
     public void status(){
         System.out.println("SOBRE A CANETA:");
-        System.out.println("Modelo: " + this.modelo);
-        System.out.println("Ponta " + this.ponta);
+        System.out.println("Modelo: " + this.getModelo());
+        System.out.println("Ponta " + this.getPonta());
+        System.out.println("Cor: " + this.cor);
+        System.out.println("Tampada: " + this.tampada);
+    }
+
+    public void tampar(){
+        this.tampada = true;
+    }
+
+    public void destampada(){
+        this.tampada = false;
     }
 
     //#endregion
