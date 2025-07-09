@@ -4,12 +4,11 @@ public class Conta {
 
     //#region ATRIBUTOS
     
-    public int numConta;
+    private int numConta;
     protected String tipo;
     private String dono;
     private float saldo;
     private boolean status;
-    private float debito;
 
     //#endregion
 
@@ -18,9 +17,8 @@ public class Conta {
     public Conta(int numConta, String dono){
         this.numConta = numConta;
         this.dono = dono;
+        this.status = false;
         this.saldo = 0;
-        this.debito = 0;
-        this.fecharConta();
     }
 
     //#endregion 
@@ -84,20 +82,22 @@ public class Conta {
     }
 
     public void abrirConta(String tipo){
-        if(tipo == "CC"){
+        if(tipo.equals("CC")){
             this.setTipo(tipo);
             this.setStatus(true);
             this.setSaldo(50.0f);
-        } else if(tipo == "CP"){
+        } else if(tipo.equals("CP")){
             this.setTipo(tipo);
             this.setStatus(true);
             this.setSaldo(150.0f);
+        } else {
+            System.out.println("O tipo digitado está incorreto, digite novamente");
         }
 
     }
 
     public void fecharConta(){
-        if(this.getSaldo() == 0 && this.debito == 0){
+        if(this.getSaldo() == 0){
             System.out.println("Conta fechada com sucesso!!!");
             System.out.println("A conta está zerada e não possuí nenhum debito ativo");
             this.setStatus(false);
@@ -128,14 +128,33 @@ public class Conta {
     }
 
     public void pagarMensal(){
-        float saldoAtual;
-        if(this.getTipo() == "CC") {
-             saldoAtual = this.getSaldo() - 12f;
-            this.setSaldo(saldoAtual);
 
-        } else if(this.getTipo() == "CP") {
-            saldoAtual = this.getSaldo() - 20;
-            this.setSaldo(saldoAtual);
+        float saldoAtual;
+        int valorMensal;
+
+        if(this.getTipo().equals("CC") && this.getStatus() == true) {
+            valorMensal = 12;
+
+            if(this.getSaldo() >= valorMensal){
+                saldoAtual = this.getSaldo() - valorMensal;
+                this.setSaldo(saldoAtual);
+            } else {
+                System.out.println("Saldo Insuficiente");
+            }
+            
+
+        } else if(this.getTipo().equals("CP") && this.getStatus() == true) {
+            valorMensal = 20;
+
+            if(this.getSaldo() >= valorMensal){
+                saldoAtual = this.getSaldo() - valorMensal;
+                this.setSaldo(saldoAtual);
+            } else {
+                System.out.println("Saldo Insuficiente");
+            }
+
+        } else {
+            System.out.println("Impossível de pagar");
         }
 
     }
