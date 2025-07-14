@@ -34,7 +34,7 @@ public class Lutador {
         this.nacionalidade = nacionalidade;
         this.idade = idade;
         this.altura = altura;
-        this.peso = peso;
+        this.setPeso(peso);
         this.vitorias = vitorias;
         this.empates = empates;
         this.derrotas = derrotas;
@@ -111,14 +111,19 @@ public class Lutador {
         String categoria;
         if(this.getPeso() < 52.2f){
             categoria = "Inválido";
+            this.categoria = categoria;
         } else if(this.getPeso() <= 70.3f){
             categoria = "Leve";
+            this.categoria = categoria;
         } else if(this.getPeso() > 70.3f && this.getPeso() <= 83.9f){
             categoria = "Media";
+            this.categoria = categoria;
         } else if(this.getPeso() > 83.9f && this.getPeso() <= 120.2f){
             categoria = "Pesado";
+            this.categoria = categoria;
         } else {
             categoria = "Inválido";
+            this.categoria = categoria;
         }
     }
 
