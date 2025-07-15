@@ -15,6 +15,17 @@ public class Aula07 {
         System.out.println();
         lutador[0].status();
 
+        System.out.println("\n");
+        System.out.println("\n");
+
+        Luta uec01 = new Luta();
+
+        uec01.marcarLuta(lutador[0], lutador[1]);
+        System.out.println("\n");
+        uec01.lutar();
+
+        lutador[0].status();
+        lutador[1].status();
 
 
     }

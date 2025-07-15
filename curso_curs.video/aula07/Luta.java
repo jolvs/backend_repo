@@ -1,6 +1,4 @@
-package aula07
-
-import java.util.Random;
+package aula07;
 
 public class Luta{
 
@@ -9,11 +7,9 @@ public class Luta{
     private Lutador desafiado;
     private Lutador desafiante;
     private int rounds;
-    private boolean aprovada;
+    private boolean aprovada = false;
 
     //#endregion
-
-
 
     //#region CONSTRUTORES
 
@@ -31,6 +27,14 @@ public class Luta{
         return desafiante;
     }
 
+    public int getRounds() {
+        return rounds;
+    }
+
+    public boolean getAprovada() {
+        return aprovada;
+    }
+
     //#endregion
 
 
@@ -45,6 +49,14 @@ public class Luta{
         this.desafiante = desafiante;
     }
 
+    public void setRounds(int rounds) {
+        this.rounds = rounds;
+    }
+
+    public void setAprovada(boolean aprovada) {
+        this.aprovada = aprovada;
+    }
+
     //#endregion
 
 
@@ -52,7 +64,8 @@ public class Luta{
     //#region METODOS
 
     public void marcarLuta(Lutador desafiado, Lutador desafiante){
-        if(desafiado.getCategoria() == desafiante.getCategoria() && desafiado != desafiante){
+        //.equals() - serve para comparar uma String com outra, substitui o '=='
+        if(desafiado.getCategoria().equals(desafiante.getCategoria()) && desafiado != desafiante){
             this.aprovada = true;
             setDesafiado(desafiado);
             setDesafiante(desafiante);
