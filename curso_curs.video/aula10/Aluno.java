@@ -54,6 +54,7 @@ public class Aluno extends Pessoa {
     //#region METODOS
 
     public void cancelarMatricula(){
+        System.out.println("Matricula será cancelada");
 
     }
 

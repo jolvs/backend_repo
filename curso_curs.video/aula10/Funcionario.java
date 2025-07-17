@@ -56,6 +56,7 @@ public class Funcionario extends Pessoa {
     //#region METODOS
 
     public void mudarTrabalho(float aumento){
+        this.trabalhando = !this.trabalhando;
     }
 
     //#endregion
