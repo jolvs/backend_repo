@@ -20,8 +20,6 @@ public class Aula10 {
         p3.setSalario(5000f);
         p4.setSetor("Estoque");
 
-        p1.receberAumento(550.20f);
-
 
 
 
