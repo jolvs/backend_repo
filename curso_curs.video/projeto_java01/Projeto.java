@@ -16,6 +16,10 @@ public class Projeto {
         System.out.println(g[0].toString());
         System.out.println("\n");
         System.out.println(g[1].toString());
+
+        Visualizacao visualizacao1 = new Visualizacao(g[0], v[2]);
+
+        System.out.println(visualizacao1.toString());
         
     }
 }
